@@ -10,3 +10,19 @@ docker ps
 docker run -d -p8080:8080 -e "SPRING_PROFILES_ACTIVE=docker" --name my-prd-srv product-service
 docker logs my-prd-srv -f
 docker rm -f my-prd-srv
+
+
+
+# docker-compose cmd should be run from where docker-compose.xml located
+
+docker-compose build
+docker images | grep simple-product
+
+docker-compose up -d
+
+docker-compose logs -f
+docker-compose logs -f product-composite
+
+curl localhost:8080/product-composite/123 -s | jq .
+
+docker-compose down
