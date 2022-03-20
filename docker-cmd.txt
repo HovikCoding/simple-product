@@ -37,3 +37,12 @@ docker-compose logs product
 docker-compose restart product
 docker-compose up -d --scale product=1
 docker system prune -f --volume
+
+
+
+
+mvn clean install && docker-compose build && docker-compose up -d
+./test-em-all-compose.bash start stop
+docker-compose up -d
+http://localhost:8080/openapi/swagger-ui.html
+docker-compose down
