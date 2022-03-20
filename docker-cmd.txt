@@ -26,3 +26,14 @@ docker-compose logs -f product-composite
 curl localhost:8080/product-composite/123 -s | jq .
 
 docker-compose down
+
+
+
+
+# Automating tests of cooperating microservices
+./test-em-all-compose.bash start stop
+
+docker-compose logs product
+docker-compose restart product
+docker-compose up -d --scale product=1
+docker system prune -f --volume
