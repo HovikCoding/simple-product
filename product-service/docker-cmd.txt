@@ -1,0 +1,12 @@
+docker build -t product-service .
+docker build -t product-service:latest .
+
+docker images | grep product-service
+
+docker run --rm -p8080:8080 -e "SPRING_PROFILES_ACTIVE=docker" product-service
+
+docker ps
+
+docker run -d -p8080:8080 -e "SPRING_PROFILES_ACTIVE=docker" --name my-prd-srv product-service
+docker logs my-prd-srv -f
+docker rm -f my-prd-srv
