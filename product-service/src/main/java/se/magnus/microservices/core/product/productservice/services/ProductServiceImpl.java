@@ -29,7 +29,7 @@ public class ProductServiceImpl implements ProductService {
             throw new InvalidInputException("Invalid productId: " + productId);
         }
 
-        if (productId >= 13) {
+        if (productId == 13) {
             throw new NotFoundException("No product found for productId: " + productId);
         }
 
