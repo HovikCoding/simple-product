@@ -3,10 +3,15 @@ server:
   error:
     include-message: always
 
+# Strongly recommend to set this property to "none" in a production environment!
+spring.jpa.hibernate.ddl-auto: update
+
 logging:
   level:
     root: INFO
     se.magnus: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
 
 ---
 spring.config.activate.on-profile: docker
